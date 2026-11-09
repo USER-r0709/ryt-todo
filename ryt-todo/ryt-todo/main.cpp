@@ -26,7 +26,9 @@ int main() {
 			string con;
 			cin.ignore();
 			getline(cin, con);
-			if (con.empty()) { cout << "内容不能为空" << endl; }
+			if (con.empty() || con.find_first_not_of(" \t\r\n") == string::npos) {
+				cout << "内容不能为空" << endl; 
+			}
 			else {
 				list.add(con);
 				cout << endl;
