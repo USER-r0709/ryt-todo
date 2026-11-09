@@ -14,6 +14,7 @@ public:
 	bool markFinished(int id);
 	bool remove(int id);
 	void show();
+	bool empty();
 	void loadFromFile(const std::string path);
 	void saveToFile(const std::string path);
 	friend std::ostream& operator<<(std::ostream& os, const TodoItem& t);

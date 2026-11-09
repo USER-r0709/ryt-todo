@@ -3,6 +3,7 @@
 #include<vector>
 #include<string>
 #include<iostream>
+#include<limits>
 using namespace std;
 
 int main() {
@@ -25,19 +26,28 @@ int main() {
 			string con;
 			cin.ignore();
 			getline(cin, con);
-			list.add(con);
-			cout << endl;
-			list.show();
+			if (con.empty()) { cout << "内容不能为空" << endl; }
+			else {
+				list.add(con);
+				cout << endl;
+				list.show();
+			}
 		}
 		else if (choice == "b") {
 			cout << "请输入准备标记完成的待办事项前数字编号：";
 			int id;
-			cin >> id;
-			if (list.find(id) != -1) {
-				list.markFinished(id);
+			if (!(cin >> id)) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "请输入数字编号！" << endl;
 			}
 			else {
-				cout << "不存在此待办项" << endl;
+				if (list.find(id) != -1) {
+					list.markFinished(id);
+				}
+				else {
+					cout << "不存在此待办项" << endl;
+				}
 			}
 		}
 		else if (choice == "c") {
@@ -52,8 +62,13 @@ int main() {
 			}
 		}
 		else if (choice == "d") {
-			cout << endl;
-			list.show();
+			if (list.empty()) {
+				cout << "（暂无待办事项）" << endl;
+			}
+			else {
+				cout << endl;
+				list.show();
+			}
 		}
 		else if (choice == "e") {
 			out = true;

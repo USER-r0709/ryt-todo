@@ -55,6 +55,11 @@ void TodoManager::show() {
 	}
 }
 
+bool TodoManager::empty() {
+	if (items.empty()) { return true; }
+	else { return false; }
+}
+
 std::ostream& operator<<(std::ostream& os, const TodoItem& t) {
 	os << t.id << "|" << t.content << "|" << t.is_finished;
 	return os;
