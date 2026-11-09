@@ -1,0 +1,22 @@
+# ===== Visual Studio 构建产物 =====
+x64/
+Debug/
+Release/
+*.obj
+*.ilk
+*.pdb
+*.tlog
+*.exe
+
+# ===== VS 缓存与数据库 =====
+.vs/
+*.VC.db
+*.ipch
+*.suo
+*.ncb
+
+# ===== 用户本地配置 =====
+*.user
+
+# ===== 运行时数据 =====
+todo.txt
